@@ -15,11 +15,12 @@ docker run -it --rm --name music_socket -v "$PWD":/usr/src/app -w /usr/src/app -
 
 ### Client
 
+**NB change the IP address in the client.js file to the IP address of the server.**
+
 ```bash
 docker run -it --rm --name client -v "$PWD":/usr/src/app -w /usr/src/app node:current-alpine npm install
 docker run -it --rm --name client -v "$PWD":/usr/src/app -w /usr/src/app -p 8080:8080 node:current-alpine node client.js
 ```
-
 
 ### Output
 
