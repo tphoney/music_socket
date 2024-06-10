@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>music_socket</title>
+    <script src="//unpkg.com/htmx.org@1.8.2"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    <!-- from https://github.com/picocss/pico -->
+</head>
+
+<body>
+    <h1 class="container">music_socket</h1>
+    <div class="container">
+        <form hx-post="/send" method="post" hx-target="#log">
+            <label for="client">client:</label>
+            <input type="text" id="client" name="client" value="client">
+            <label for="type">type:</label>
+            <select id="type" name="type">
+                <option value="light">light</option>
+                <option value="sound">sound</option>
+            </select>
+            <label for="value">value:</label>
+            <input type="text" id="value" name="value" value="1">
+            <button>send</button>
+        </form>
+    <h2 class="container">Log:</h2>
+    <div class="container" id="log"></div>
+</body>

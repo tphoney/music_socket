@@ -13,7 +13,7 @@ docker run -it --rm --name music_socket -v "$PWD":/usr/src/app -w /usr/src/app n
 docker run -it --rm --name music_socket -v "$PWD":/usr/src/app -w /usr/src/app -p 9090:9090 node:current-alpine node server.js
 ```
 
-### Client
+### Javascript Client
 
 **NB change the IP address in the client.js file to the IP address of the server.**
 
@@ -22,7 +22,7 @@ docker run -it --rm --name client -v "$PWD":/usr/src/app -w /usr/src/app node:cu
 docker run -it --rm --name client -v "$PWD":/usr/src/app -w /usr/src/app -p 8080:8080 node:current-alpine node client.js
 ```
 
-### Output
+#### Output
 
 ```bash
 Server listening on port 9090
@@ -43,4 +43,14 @@ Light level: 50.654070848299604 delay: 1ms Sent @ 1718029691018 recieved @ 17180
 ^C✅ The server has been stopped Shutdown information This shutdown was initiated by CTRL+C.
 Sound level: 3.1106696121108834 delay: 0ms Sent @ 1718029692017 recieved @ 1718029692017
 Light level: 82.03426992322748 delay: 0ms Sent @ 1718029692018 recieved @ 1718029692
+```
+
+### Golang webserver
+
+allows many users to connect to the server and send messages to the javascript server.
+
+***NB change the IP address in the main.go file to the IP address of the server.***
+
+```bash
+docker run -it --rm --name golang -v "$PWD":/usr/src/app -w /usr/src/app golang go run main.go
 ```
