@@ -1,0 +1,12 @@
+{
+    "name":  "music_socket",
+    "version":  "1.0",
+    "description":  "A simple music player using websockets",
+    "main":  "server.js",
+    "scripts":  {
+        "start":  "node server.js"
+    },
+    "dependencies":  {
+        "ws":  "^6.2.1"
+    }
+}
