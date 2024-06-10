@@ -5,12 +5,12 @@ ws.onopen = () => {
     // Simulate light and sound events here
     setInterval(() => {
         const lightLevel = Math.random() * 100;
-        ws.send(JSON.stringify({ type: 'light', value: lightLevel, time: new Date().getTime() }));
+        ws.send(JSON.stringify({ type: 'light', value: lightLevel, time: new Date().getTime(), client: 'jsclient' }));
     }, 1000);
 
     setInterval(() => {
         const soundLevel = Math.random() * 100;
-        ws.send(JSON.stringify({ type: 'sound', value: soundLevel, time: new Date().getTime() }));
+        ws.send(JSON.stringify({ type: 'sound', value: soundLevel, time: new Date().getTime(), client: 'jsclient' }));
     }, 2000);
 };
 

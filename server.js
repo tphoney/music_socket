@@ -10,9 +10,9 @@ wss.on('connection', (ws) => {
 
         const timeDifference = new Date().getTime() - data.time;
         if (data.type === 'light') {            
-            console.log(`Light level: ${data.value} delay: ${timeDifference}ms Sent @ ${data.time} recieved @ ${new Date().getTime()}`);
+            console.log(`Light level: ${data.value} delay: ${timeDifference}ms Sent @ ${data.time} recieved @ ${new Date().getMilliseconds}. Client: ${data.client}`);
         } else if (data.type === 'sound') {
-            console.log(`Sound level: ${data.value} delay: ${timeDifference}ms Sent @ ${data.time} recieved @ ${new Date().getTime()}`);
+            console.log(`Sound level: ${data.value} delay: ${timeDifference}ms Sent @ ${data.time} recieved @ ${new Date().getTime()}. Client: ${data.client}`);
         } else {
             console.warn(`Unknown event type: ${data.type}`);
         }
