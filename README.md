@@ -54,3 +54,30 @@ allows many users to connect to the server and send messages to the javascript s
 ```bash
 docker run -it --rm --name golang -v "$PWD":/usr/src/app -w /usr/src/app golang go run main.go
 ```
+
+#### Output from a mobile client
+
+Need to figure out how to sync the time between the server and the client. As using the time from the client is not accurate.
+
+```bash
+Light level: 1 delay: 15ms Sent @ 1718278640230 recieved @ 1718278640245. Client: client
+Client disconnected
+Client connected
+Light level: 1 delay: 10ms Sent @ 1718278657542 recieved @ 1718278657552. Client: client
+Client disconnected
+Client connected
+Light level: 1 delay: -1224ms Sent @ 1718278755693 recieved @ 1718278754470. Client: client
+Client disconnected
+Client connected
+Light level: 1 delay: -1242ms Sent @ 1718278836651 recieved @ 1718278835409. Client: Mobile
+Client disconnected
+Client connected
+Light level: 1 delay: -1242ms Sent @ 1718279082777 recieved @ 1718279081535. Client: Mobile
+Client disconnected
+Client connected
+Light level: 1 delay: -1261ms Sent @ 1718279087521 recieved @ 1718279086260. Client: Mobile
+Client disconnected
+Client connected
+Light level: 1 delay: -1244ms Sent @ 1718279093003 recieved @ 1718279091759. Client: Mobile
+Client disconnected
+```

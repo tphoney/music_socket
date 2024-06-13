@@ -46,6 +46,14 @@ func (c Config) SendMessageHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	var unixTimeString string
+	clientTime := r.FormValue("currentTime")
+	if clientTime == "" {
+		unixTimeString = fmt.Sprintf("%d", time.Now().UnixMilli())
+	} else {
+		// convert the time to unix time
+		unixTimeString = clientTime
+	}
 	// Dial the WebSocket server
 	ws, _, err := websocket.DefaultDialer.Dial(c.TargetServer, nil)
 	if err != nil {
@@ -54,10 +62,7 @@ func (c Config) SendMessageHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	defer ws.Close()
 
-	time.Sleep(1 * time.Second)
-
 	// Send a message to the server
-	unixTimeString := fmt.Sprintf("%d", time.Now().UnixMilli())
 	var message MusicSocketMessage
 	if inputType == "light" {
 		message = MusicSocketMessage{

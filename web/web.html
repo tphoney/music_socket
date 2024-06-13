@@ -21,8 +21,16 @@
             </select>
             <label for="value">value:</label>
             <input type="text" id="value" name="value" value="1">
+            <input type="hidden" id="currentTime" name="currentTime">
             <button>send</button>
         </form>
-    <h2 class="container">Log:</h2>
-    <div class="container" id="log"></div>
+        <h2 class="container">Log:</h2>
+        <div class="container" id="log"></div>
+        <script>
+            const form = document.querySelector('form');
+            form.addEventListener('submit', (event) => {
+                const currentTimeInput = document.getElementById('currentTime');
+                currentTimeInput.value = new Date().getTime();
+            });
+        </script>
 </body>
